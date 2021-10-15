@@ -3,6 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 using QueryApi.Repositories;
 using QueryApi.Domain;
 
+/*
+Universidad Tecnologica Metropolitana
+Asignatura: Aplicaciones Web Orientadas a Servicios
+Maestro: Chuc Uc Joel Ivan
+Actividad: Consultas
+Alumno: Estrella Yah Jesus Ivan
+4to Cuatrimestre
+Grupo: 4B
+Parcial: 2do
+*/
+
 namespace Controllers
 {
     [ApiController]
@@ -94,7 +105,7 @@ namespace Controllers
         
         [HttpGet]
         [Route("Ejercicio 10 Ordenar de manera descendente para todas las personas de género masculino y que se encuentren entre los 20 y 30 años de edad")]
-        public IActionResult GetPersonsOrderedDesc(int MinEdad, int MaxEdad) //Lo he ordenado por edad descendentemente
+        public IActionResult GetPersonsOrderedDesc(int MinEdad, int MaxEdad)
         {
             var repository = new PersonRepository();
             var persons = repository.GetPersonsOrderedDesc(MinEdad, MaxEdad);
