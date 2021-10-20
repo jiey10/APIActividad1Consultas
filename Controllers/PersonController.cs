@@ -21,7 +21,7 @@ namespace Controllers
     public class PersonController : ControllerBase
     {
         [HttpGet]
-        [Route("Ejericio 1 Información de todas las personas")]
+        [Route("Ejericio_1_Informacion_General")]
         public IActionResult GetAll()
         {
             var repository = new PersonRepository();
@@ -30,7 +30,7 @@ namespace Controllers
         } 
 
        [HttpGet]
-        [Route("Ejericicio 2 Retorna únicamente el nombre completo de las personas, el correo y el año de nacimiento")]
+        [Route("Ejericicio_2_Recoleccion_Datos")]
         public IActionResult GetField()
         {
             var repository = new PersonRepository();
@@ -39,7 +39,7 @@ namespace Controllers
         }
 
         [HttpGet]
-        [Route("Ejercicio 3 Obtener por genero")]
+        [Route("Ejercicio_3_Obtener_Generos")]
         public IActionResult GetByGender(char gender)
         {
             var repository = new PersonRepository();
@@ -48,7 +48,7 @@ namespace Controllers
         } 
 
         [HttpGet]
-        [Route("Ejericio 4 Personas cuya edad se encuentre entre los 20 y 30 años")]
+        [Route("Ejericio_4_Rango_Edades")]
         public IActionResult GetByRangeAge(int MinEdad, int MaxEdad)
         {
             var repository = new PersonRepository();
@@ -58,7 +58,7 @@ namespace Controllers
 
 
         [HttpGet]
-        [Route("Ejercicio 5 Diferentes trabajos que tienen las personas")]
+        [Route("Ejercicio_5_Trabajos")]
         public IActionResult GetJobs()
         {
             var repository = new PersonRepository();
@@ -67,7 +67,7 @@ namespace Controllers
         } 
 
         [HttpGet]
-        [Route("Ejercicio 6 Nombre contenga la palabra “ar”")]
+        [Route("Ejercicio_6_Nombres_Vocales")]
         public IActionResult GetContains(string partName)
         {
             var repository = new PersonRepository();
@@ -76,7 +76,7 @@ namespace Controllers
         } 
 
         [HttpGet]
-        [Route("Ejercicio 7 Cuyas edades sean 25, 35 y 45 años")]
+        [Route("Ejercicio_7_Edades_Especificas")]
         public IActionResult GetByAger(int Age, int Age2, int Age3)
         {
             var repository = new PersonRepository();
@@ -85,7 +85,7 @@ namespace Controllers
         }
 
         [HttpGet]
-        [Route("Ejercicio 8 Ordenar por edad para las personas que sean mayores a 40 años")]
+        [Route("Ejercicio_8_Ordenar_Personas_Mayores")]
         public IActionResult GetByMaxAge(int Age)
         {
             var repository = new PersonRepository();
@@ -95,7 +95,7 @@ namespace Controllers
 
         
         [HttpGet]
-        [Route("Ejercicio 9 Ordenar por edad para las personas que sean mayores a 40 años")]
+        [Route("Ejercicio_9_Ordenar_Por_Edad")]
         public IActionResult GetPersonsOrdered(int age)
         {
             var repository = new PersonRepository();
@@ -104,7 +104,7 @@ namespace Controllers
         }
         
         [HttpGet]
-        [Route("Ejercicio 10 Ordenar de manera descendente para todas las personas de género masculino y que se encuentren entre los 20 y 30 años de edad")]
+        [Route("Ejercicio_10_Ordenar_Decendentemente")]
         public IActionResult GetPersonsOrderedDesc(int MinEdad, int MaxEdad)
         {
             var repository = new PersonRepository();
@@ -113,7 +113,7 @@ namespace Controllers
         }
         
         [HttpGet]
-        [Route("Ejercicio 11 retorne la cantidad de personas con género Femenino o Masculino")]
+        [Route("Ejercicio_11_Personas_Por_Sexo")]
         public IActionResult CountPerson(char gender)
         {
             var repository = new PersonRepository();
@@ -122,7 +122,7 @@ namespace Controllers
         }
         
         [HttpGet]
-        [Route("Ejercicio 12 Retorne si existen personas con el apellido “tal”.")]
+        [Route("Ejercicio_12_Personas_Por_Apellido")]
         public IActionResult ExistPerson(string Apellido)
         {
             var repository = new PersonRepository();
@@ -131,7 +131,7 @@ namespace Controllers
         }
        
         [HttpGet]
-        [Route("Ejercicio 13 Retorne únicamente una persona cuyo trabajo sea “Software Consultant” y tenga 25 años de edad")]
+        [Route("Ejercicio_13_Personas_Por_Edad_Y_Trabajo")]
         public IActionResult GetPerson(string job, int Age)
         {
             var repository = new PersonRepository();
@@ -141,30 +141,30 @@ namespace Controllers
         
 
         [HttpGet]
-        [Route("Ejercicio 14 Retorne la información de las primeras 3 personas cuyo puesto de trabajo sea “Tal”")]
-        public IActionResult TakePerson(string job)
+        [Route("Ejercicio_14_Personas_Por_Puesto")]
+        public IActionResult TakePerson(string job, int take)
         {
             var repository = new PersonRepository();
-            var persons = repository.TakePerson(job);
+            var persons = repository.TakePerson(job, take);
             return Ok(persons);
         }
         
         
         [HttpGet]
-        [Route("Ejercicio 15 Retorne la información de las primeras 3 personas cuyo puesto de trabajo sea “Tal”")]
-        public IActionResult SkipPerson(string job)
+        [Route("Ejercicio_15_Personas_Por_Puesto_2")]
+        public IActionResult SkipPerson(string job, int skip)
         {
             var repository = new PersonRepository();
-            var persons = repository.SkipPerson(job);
+            var persons = repository.SkipPerson(job, skip);
             return Ok(persons);
         }
     
         [HttpGet]
-        [Route("Ejercicio 16 Omita la información de las primeras 3 personas y que retorne la información de las siguientes 3 personas cuyo puesto de trabajo sea “Tal”")]
-        public IActionResult SkipTakePerson(string job)
+        [Route("Ejercicio_16_Personas_Por_Puesto_3")]
+        public IActionResult SkipTakePerson(string job, int skip, int take)
         {
             var repository = new PersonRepository();
-            var persons = repository.SkipTakePerson(job);
+            var persons = repository.SkipTakePerson(job, skip, take);
             return Ok(persons);
         }
 
